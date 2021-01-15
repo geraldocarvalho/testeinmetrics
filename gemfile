@@ -1,0 +1,8 @@
+source 'http://rubygems.org'
+
+gem 'cucumber'
+gem 'rspec'
+gem 'selenium-webdriver'
+gem 'rubocop', require: false
+gem 'httparty', '~> 0.18.1'
+gem 'capybara', '~> 3.34'
