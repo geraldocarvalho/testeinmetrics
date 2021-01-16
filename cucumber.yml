@@ -1,6 +1,6 @@
 # Plataform
-default: -p html_report -p json_report -p chrome
-api_log: -p http_log -p api
+default: -p json_report -p chrome
+api_log: -p http_log
 
 # Reports
 json_report: --format pretty --format json --out=report/rubocop.html.json
