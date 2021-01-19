@@ -1,5 +1,5 @@
 module Empregado
   include HTTParty
-  base_uri 'https://inm-api-test.herokuapp.com'
+  base_uri 'https://inm-test-api.herokuapp.com'
   format :json
 end

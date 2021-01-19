@@ -1,4 +1,4 @@
-Dado('ter uma massa configurada do endpoint empregado_cadastrar.post para o cenário {tipo}') do |tipo|
+Dado('ter uma massa configurada do endpoint cadastrar_empregado.post para o cenário {tipo}') do |tipo|
   @body ={
     "admissao": "01/01/1990",
     "cargo": "Assistente",
@@ -12,7 +12,7 @@ Dado('ter uma massa configurada do endpoint empregado_cadastrar.post para o cen�
   }.to_json
   end
 
-Quando('chamar o endpoint empregado_cadastrar.post') do
+Quando('chamar o endpoint cadastrar_empregado.post') do
   @post_clients = HTTParty.post 'https://inm-test-api.herokuapp.com/empregado/cadastrar',
   basic_auth: {
       username: 'inmetrics',
@@ -22,7 +22,7 @@ Quando('chamar o endpoint empregado_cadastrar.post') do
   :headers => {"Content-Type" => 'application/json'}
 end
 
-Então('validar o retorno do endpoint empregado_cadastrar.post para o cenário {tipo}') do |tipo|
+Então('validar o retorno do endpoint cadastrar_empregado.post para o cenário {tipo}') do |tipo|
   if tipo.eql?('positivo')
     puts @post_clients.body
     puts @post_clients.message
