@@ -13,7 +13,7 @@ Dado('ter uma massa configurada do endpoint empregado_cadastrar.post para o cen√
   end
 
 Quando('chamar o endpoint empregado_cadastrar.post') do
-  @post_clients = HTTParty.post 'https://inm-api-test.herokuapp.com/empregado/cadastrar',
+  @post_clients = HTTParty.post 'https://inm-test-api.herokuapp.com/empregado/cadastrar',
   basic_auth: {
       username: 'inmetrics',
       password: 'automacao'

@@ -10,13 +10,13 @@ Dado('ter uma massa configurada do endpoint editar_cadastro.put para o cenário 
       "sexo": "m",
       "tipoContratacao": "clt"
     }.to_json
-    @respota_post = HTTParty.post('https://inm-api-test.herokuapp.com/empregado/cadastrar', :headers => {'content-type': 'application/json'}, basic_auth: { username: 'inmetrics', password: 'automacao'}, :body => @body)
+    @respota_post = HTTParty.post('https://inm-test-api.herokuapp.com/empregado/cadastrar', :headers => {'content-type': 'application/json'}, basic_auth: { username: 'inmetrics', password: 'automacao'}, :body => @body)
     puts @respota_post.code, @respota_post.body
 end
 
 Quando('chamar o endpoint editar_cadastro.put') do
   resposta_post = JSON.parse(@respota_post.body)
-  @put_clients = HTTParty.put "https://inm-api-test.herokuapp.com/empregado/alterar/#{resposta_post['empregadoId']}",
+  @put_clients = HTTParty.put "https://inm-test-api.herokuapp.com/empregado/alterar/#{resposta_post['empregadoId']}",
   basic_auth: {
       username: 'inmetrics',
       password: 'automacao'
