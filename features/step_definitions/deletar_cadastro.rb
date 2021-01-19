@@ -3,7 +3,7 @@ Dado('ter uma massa configurada do endpoint empregado_deletar.delete para o cen√
         "admissao": "01/01/1990",
         "cargo": "Assistente",
         "comissao": "500,00",
-        "cpf": "219.862.750-00", #criar metodo de cpf aleatorio
+        "cpf": "219.862.750-00",
         "departamentoId": 1,
         "nome": "Teste_01",
         "salario": "1.000,00",
@@ -11,20 +11,26 @@ Dado('ter uma massa configurada do endpoint empregado_deletar.delete para o cen√
         "tipoContratacao": "clt"
       }.to_json
       @resposta_post = HTTParty.post('https://inm-test-api.herokuapp.com/empregado/cadastrar', :headers => {'content-type': 'application/json'}, basic_auth: { username: 'inmetrics', password: 'automacao'}, :body => @body)
-      puts @resposta_post.code, @resposta_post.body
+      @resposta = tipo.eql?('positivo') ? JSON.parse(@resposta_post.body) : '000'
   end
 
 Quando('chamar o endpoint empregado_deletar.delete') do
-  resposta_post = JSON.parse(@resposta_post.body)
-  @delete_cadastro = HTTParty.delete "https://inm-test-api.herokuapp.com/empregado/deletar/#{resposta_post['empregadoId']}",
+  @delete_cadastro = HTTParty.delete "https://inm-test-api.herokuapp.com/empregado/deletar/#{@resposta['empregadoId']}",
   basic_auth: {
       username: 'inmetrics',
       password: 'automacao'
-    },
-  :body => @body,
-  :headers => {"Content-Type" => 'application/json'}
+    }
 end
 
 Ent√£o('validar o retorno do endpoint empregado_deletar.delete para o cen√°rio {tipo}') do |tipo|
-  expect(@delete_cadastro.code).to eq 202
+  if tipo.eql?('positivo')
+    expect(@delete_cadastro.body).to eq('Deletado')
+    @resposta_delete = HTTParty.get("https://inm-test-api.herokuapp.com/empregado/list/#{@resposta['empregadoId']}", :headers => {'content-type': 'application/json'}, basic_auth: { username: 'inmetrics', password: 'automacao'})
+    expect(@resposta_delete.body).to eq('Empregado n√£o cadastrado')
+    expect(@resposta_delete.code).to eq(400)
+  else
+    expect(@delete_cadastro['status']).to eq(404)
+    expect(@delete_cadastro['error']).to eq('Not Found')
+    expect(@delete_cadastro['message']).to eq('No message available')
+  end
 end
