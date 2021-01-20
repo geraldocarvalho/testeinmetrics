@@ -3,8 +3,11 @@ require 'rspec'
 require 'httparty'
 require 'capybara'
 require 'pry'
+require 'faker'
+require 'br_documents'
 
-require_relative '../services/empregado_service.rb'
+require_relative '../services/empregado_service'
+require_relative '../support/commons/api_commons'
 
 Capybara.configure do |config|
   config.default_driver = :selenium_chrome
@@ -16,3 +19,5 @@ ParameterType(
   regexp: /positivo|negativo|validacao/,
   transformer: ->(type) { type }
 )
+
+World(ApiCommons) # Permite que os metodos dentro do arquivo api_commons sejam utilizados em qualquer arquivo .rb

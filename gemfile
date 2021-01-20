@@ -7,3 +7,5 @@ gem 'rubocop', require: false
 gem 'httparty', '~> 0.18.1'
 gem 'capybara', '3.18.0'
 gem 'pry'
+gem 'faker'
+gem 'brazilian_documents'
