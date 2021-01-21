@@ -5,6 +5,8 @@ require 'capybara'
 require 'pry'
 require 'faker'
 require 'br_documents'
+require 'capybara/cucumber'
+require 'site_prism'
 
 require_relative '../services/empregado_service'
 require_relative '../support/commons/api_commons'
