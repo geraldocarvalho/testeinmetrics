@@ -3,8 +3,8 @@
 class Login < SitePrism::Page
   set_url :'https://inm-test-app.herokuapp.com/accounts/login/'
 
-  element :input_usuario, '.input100', match: :first
-  element :input_senha, '.input100', match:
+  element :input_usuario, '.input100[name="username"]'
+  element :input_senha, '.input100[name="pass"]'
   element :btn_entre, '.login100-form-btn'
 
   def preencher_usuario(tipo = 'correto')
@@ -12,9 +12,6 @@ class Login < SitePrism::Page
   end
 
   def preencher_senha(tipo = 'correta')
-    page.execute_script(script)
-
-    binding.pry
     tipo.eql?('correta') ? input_senha.set('123456') : input_senha.set('12345678')
   end
 
