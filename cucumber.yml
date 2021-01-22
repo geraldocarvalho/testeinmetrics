@@ -1,9 +1,9 @@
 # Plataform
-default: -p html_report -p json_report -p chrome
-api_log: -p http_log -p api
+default: -p json_report -p chrome -p pretty -p html
+api_log: -p http_log
 
 # Reports
-json_report: --format pretty --format json --out=report/rubocop.html.json
+json_report: --format pretty --format=message --out=report/rubocop.html.json
 
 # Logs
 http_log: HTTP_LOG=true
@@ -12,3 +12,6 @@ http_log: HTTP_LOG=true
 firefox: BROWSER=firefox
 chrome: BROWSER=chrome
 internet_explorer: BROWSER=internet_explorer
+
+pretty: --format pretty
+html: --format html --out=reports/relatorio.html

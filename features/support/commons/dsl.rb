@@ -1,3 +1,1 @@
-def printscreen
-	
-end
+def printscreen; end
