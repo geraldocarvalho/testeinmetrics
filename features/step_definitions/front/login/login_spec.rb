@@ -14,13 +14,8 @@ Entao('verifico que estou logado com sucesso') do
   expect(page).to have_content 'Pesquisar'
 end
 
-Quando('preencho com as informações incorretas {string}') do |tipo|
-  case tipo
-  when 'usuario_incorreto'
-    @login.preencher_campos('incorreto')
-  else 'senha_incorreta'
-    @login.preencher_campos('incorreto')
-  end
+Quando('preencho com as informações incorretas {string}') do |_tipo|
+  @login.preencher_campos('incorreto')
 end
 
 Entao('verifico que houve uma falha de {string}') do |comportamento|

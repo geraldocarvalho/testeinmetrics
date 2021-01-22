@@ -20,7 +20,7 @@ class Login < SitePrism::Page
   element :btn_deletar_funcionario, '#delete-btn'
   element :span_tabela_funcionarios, '.dataTables_empty'
   elements :lista_elementos, '#delete'
-  element :cadastro_rh , '#navbarSupportedContent > ul > li:nth-child(1) > a'
+  element :cadastro_rh, '#navbarSupportedContent > ul > li:nth-child(1) > a'
   element :confirmar_senha, '.input100[name="confirmpass"]'
   element :usuario_rh_existente, 'body > div > div > div > form > div.p-t-10.p-b-1 > span > div'
   element :senha_rh_incorreta, 'body > div > div > div > form > div:nth-child(5) > span > div'

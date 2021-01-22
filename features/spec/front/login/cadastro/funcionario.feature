@@ -11,7 +11,7 @@ Funcionalidade: Funções de funcionário
     Dado que eu esteja na página home
     Quando preencho os dados de login
     E cadastro novo funcionário
-    Então verifico que o funcionário novo foi cadastrado
+    Entao verifico que o funcionário novo foi cadastrado
 
   @editar_funcionario
   Cenário: editar_funcionario
@@ -20,7 +20,7 @@ Funcionalidade: Funções de funcionário
     E cadastro novo funcionário
     E localizo o funcionário pelo CPF
     E edito os campos do funcionário
-    Então verifico que o funcionário foi alterado
+    Entao verifico que o funcionário foi alterado
 
   @excluir_funcionario
   Cenário: excluir_funcionario
@@ -29,4 +29,4 @@ Funcionalidade: Funções de funcionário
     E cadastro novo funcionário
     E localizo o funcionário pelo CPF
     E excluo o funcionário
-    Então verifico que o funcionário não existe no sistema
+    Entao verifico que o funcionário não existe no sistema

@@ -11,18 +11,18 @@ Funcionalidade: Cadastro de funcionário do rh
     Dado que eu esteja na página home
     Quando clico na opção de cadastre-se
     E cadastro novo funcionário do rh
-    Então verifico que o novo funcionário foi cadastrado
+    Entao verifico que o novo funcionário foi cadastrado
 
   @cadastro_funcionario_rh_existente
   Cenário: cadastro_funcionario_rh_existente
     Dado que eu esteja na página home
     Quando clico na opção de cadastre-se
     E cadastro um funcionário do rh existente
-    Então verifico que o funcionário do rh não foi cadastrado
+    Entao verifico que o funcionário do rh não foi cadastrado
 
   @cadastro_funcionario_rh_senha_incorreta
   Cenário: cadastro_funcionario_rh_senha_incorreta
     Dado que eu esteja na página home
     Quando clico na opção de cadastre-se
     E cadastro um funcionário do rh com a confirmação de senha incorreta
-    Então verifico que a senha está incorreta
+    Entao verifico que a senha está incorreta
