@@ -9,14 +9,14 @@ Funcionalidade: Funções de funcionário
   @cadastro_funcionario
   Cenário: cadastro_funcionario
     Dado que eu esteja na página home
-    Quando realizo o acesso da página de login
+    Quando preencho os dados de login
     E cadastro novo funcionário
     Então verifico que o funcionário novo foi cadastrado
 
   @editar_funcionario
   Cenário: editar_funcionario
     Dado que eu esteja na página home
-    Quando realizo o acesso da página de login
+    Quando preencho os dados de login
     E cadastro novo funcionário
     E localizo o funcionário pelo CPF
     E edito os campos do funcionário
@@ -25,7 +25,7 @@ Funcionalidade: Funções de funcionário
   @excluir_funcionario
   Cenário: excluir_funcionario
     Dado que eu esteja na página home
-    Quando realizo o acesso da página de login
+    Quando preencho os dados de login
     E cadastro novo funcionário
     E localizo o funcionário pelo CPF
     E excluo o funcionário

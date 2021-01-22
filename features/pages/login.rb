@@ -19,10 +19,41 @@ class Login < SitePrism::Page
   element :btn_editar_funcionario, '#tabela > tbody > tr > td:nth-child(6) > a:nth-child(2) > button'
   element :btn_deletar_funcionario, '#delete-btn'
   element :span_tabela_funcionarios, '.dataTables_empty'
+  elements :lista_elementos, '#delete'
+  element :cadastro_rh , '#navbarSupportedContent > ul > li:nth-child(1) > a'
+  element :confirmar_senha, '.input100[name="confirmpass"]'
+  element :usuario_rh_existente, 'body > div > div > div > form > div.p-t-10.p-b-1 > span > div'
+  element :senha_rh_incorreta, 'body > div > div > div > form > div:nth-child(5) > span > div'
 
   def preencher_campos(tipo = 'correto')
     tipo.eql?('correto') ? input_usuario.set('Teste_01') : input_usuario.set('Teste_0101')
     tipo.eql?('correto') ? input_senha.set('123456') : input_senha.set('12345678')
+    btn_entre.click
+  end
+
+  def cadastrar_rh
+    user = Time.now.to_i
+    input_usuario.set("Rh#{user}")
+    input_senha.set("Rh#{user}".reverse)
+    confirmar_senha.set("Rh#{user}".reverse)
+    btn_entre.click
+    input_usuario.set("Rh#{user}")
+    input_senha.set("Rh#{user}".reverse)
+    btn_entre.click
+  end
+
+  def cadastro_rh_existente
+    input_usuario.set('Teste_01')
+    input_senha.set('123456')
+    confirmar_senha.set('123456')
+    btn_entre.click
+  end
+
+  def cadastro_rh_senha_incorreta
+    user = Time.now.to_i
+    input_usuario.set("Rh#{user}")
+    input_senha.set("Rh#{user}".reverse)
+    confirmar_senha.set("Rh#{user}")
     btn_entre.click
   end
 
